@@ -1,0 +1,26 @@
+package sample;
+
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
+
+/**
+ * BASE64编码解码工具包
+ */
+public class Base64Utils {
+
+    /**
+     * BASE64字符串解码为二进制数据
+     * @param base64
+     */
+    public static byte[] decode(String base64) throws Exception {
+        return new BASE64Decoder().decodeBuffer(base64);
+    }
+
+    /**
+     * 二进制数据编码为BASE64字符串
+     * @param bytes
+     */
+    public static String encode(byte[] bytes){
+        return new BASE64Encoder().encode(bytes);
+    }
+}
