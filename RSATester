@@ -1,0 +1,46 @@
+
+import java.awt.*;
+
+
+public class RSATester extends Frame {
+
+    private static String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDxrKvQNmB8g9CxKrat4shkxqGZVQEq6bgW1UT\n" +
+            "vLWHvKe7GA6Ynz0w4QHsBCSAyD1q/1oCgNUOmVxLexeIy22W2ADhrB1s46PJ0WF11mopABO66xGl\n" +
+            "Pkp3nRK++/FD8ZkiLa5+nkfeyTLAieUce+dIdsX2IjavhTiwccI+i/FMPwIDAQAB";
+
+    private static String privateKey = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAMPGsq9A2YHyD0LEqtq3iyGTGoZl\n" +
+            "VASrpuBbVRO8tYe8p7sYDpifPTDhAewEJIDIPWr/WgKA1Q6ZXEt7F4jLbZbYAOGsHWzjo8nRYXXW\n" +
+            "aikAE7rrEaU+SnedEr778UPxmSItrn6eR97JMsCJ5Rx750h2xfYiNq+FOLBxwj6L8Uw/AgMBAAEC\n" +
+            "gYAiZHCVewX63wQxTY1aOO43Krl5LKnS3DjHpyPOANO/EbRBmNtPkoHUaWLGDIBBI2wutMciM3G6\n" +
+            "S9S76dbbkCkjDQUQWcw/zU35W6k6fB/RJBxwPeoMzu+x6I2CiyEJE302soqXlY88x4f59LusbDm+\n" +
+            "47sRHUha9+YO/bIHCiWTwQJBAOY6aSAsYY35d25AvsC+wBATurF1lCTr4PzRgGu2533nYbz0Q0x7\n" +
+            "IJy0veqmgKazLq32tS4uAZ7nRqd17IiWVSECQQDZsQFSXCP1oljBN2Ry5bTDUMaD9Z3DPUKuO1mL\n" +
+            "GdNhE5tmq6Rsqh1CSeatnfls3qVvu/TghdEBFtjGNNK1rBVfAkBNi3sBJTGumkoJzrDxRs52G88U\n" +
+            "GqBNV02umfoBTdfm5lpbRIKubgJsBcy6Dl7ixxN/8MrRxRkypn97xBJpZwlBAkAeqK00+kEeQSUa\n" +
+            "4UBGZk+VCnVK9HapnqEbhMRRsOtySp6iUR4xJ6xDP8E7RnpweNL375LHZFFRQ/R3xcy/RWMlAkAK\n" +
+            "zysrFiyy+nDmm1jtxYn8kcX2dbq3182kguecQLk5HONo0qUZkd2OV70RnjBAH3L4RI66L+KN+tLQ\n" +
+            "IqVj0okJ";
+
+//    static {
+//        try {
+//            Map<String, Object> keyMap = RSAUtils.genKeyPair();
+//            publicKey = RSAUtils.getPublicKey(keyMap);
+//            privateKey = RSAUtils.getPrivateKey(keyMap);
+//            System.err.println("公钥: \n\r" + publicKey);
+//            System.err.println("私钥： \n\r" + privateKey);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
+    public static void main(String[] args) throws Exception {
+       active();
+    }
+
+    static void active() throws Exception {
+        String source = "421D477B-2D7C-B93D-8CE1-565E8D8976C700:50:56:9D:5F:AE";
+        byte[] data = source.getBytes();
+        String sign = RSAUtils.sign(data, privateKey);
+        System.err.println("签名:\r" + sign);
+    }
+}
